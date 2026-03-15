@@ -1,0 +1,41 @@
+{% extends 'tapasapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    
+    <div class="card content-card p-5">
+        <h3 class="mb-4" style="color: var(--navy-blue);">Type in Dish Details:</h3>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="form-label fw-bold">Name:</label>
+                <input type="text" class="form-control" name="dish_name">
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Cook Time:</label>
+                    <input type="text" class="form-control" name="cooking_time">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Prep Time:</label>
+                    <input type="text" class="form-control" name="prep_time">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-navy px-4 py-2">Add to dishes</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom px-3 py-2" href="{% url 'view_menu' %}">Back to main</a>
+    </li>
+
+{% endblock %}
